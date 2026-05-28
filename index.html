@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Symbols</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform .55s cubic-bezier(.25,.46,.45,.94);
+  flex: 1 1 auto;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-img {
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.s1 { background: #3b9fd4; }
+.s2 { background: #2e8b8b; }
+.s3 { background: #2e4b7a; }
+.s4 { background: #5b4a9a; }
+.s5 { background: #9a4a6a; }
+
+.dim-text {
+  font-size: clamp(40px, 9vw, 160px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1;
+  display: flex;
+  user-select: none;
+}
+
+.d1 { color: #111; font-style: italic; -webkit-text-stroke: 3px #ff4fd8; -webkit-text-fill-color: #111; }
+.d2 { -webkit-text-fill-color: #f7c948; font-style: italic; }
+.d3 { -webkit-text-fill-color: transparent; -webkit-text-stroke: 3px #ff4fd8; }
+.dx { -webkit-text-fill-color: #fff; }
+.d4 { -webkit-text-fill-color: #f7c948; font-style: italic; }
+.d5 { color: #111; -webkit-text-stroke: 3px #4fd87a; -webkit-text-fill-color: #111; }
+.d6 { -webkit-text-fill-color: transparent; -webkit-text-stroke: 3px #f7c948; }
+
+.slide-content {
+  background: #1e2a3a;
+  padding: 10px 28px 12px;
+  flex: 0 0 auto;
+}
+
+.slide-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 3px;
+}
+
+.slide-title {
+  font-size: clamp(16px, 2.2vw, 24px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.slide-desc {
+  font-size: 11px;
+  color: #888;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  max-width: 500px;
+}
+
+.slide-btns { display: flex; gap: 10px; }
+
+.btn-w {
+  background: #fff;
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-g {
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 3px;
+  border: 1.5px solid rgba(255,255,255,.4);
+  cursor: pointer;
+}
+
+.btn-w:hover { background: #f0f0f0; }
+.btn-g:hover { border-color: #fff; }
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.arrow:hover { background: rgba(255,255,255,.38); }
+.prev { left: 12px; }
+.next { right: 12px; }
+
+.dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.dot.on {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+.products {
+  height: 100vh;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.prod-heading {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.card-img {
+  background: #4caf50;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-dim {
+  font-size: clamp(12px, 1.6vw, 22px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  display: flex;
+  user-select: none;
+}
+
+.card-body {
+  flex: 0 0 auto;
+  padding: 6px 2px 4px;
+}
+
+.c-brand {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: #9e9e9e;
+  margin-bottom: 2px;
+}
+
+.c-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 3px;
+}
+
+.c-price { display: flex; gap: 6px; align-items: center; }
+.p-now { font-size: 11px; font-weight: 700; color: #111; }
+.p-was { font-size: 10px; color: #9e9e9e; text-decoration: line-through; }
+
+@media (max-width: 768px) {
+  .dim-text { font-size: clamp(24px, 8vw, 60px); }
+  .slide-desc { display: none; }
+  .products {
+    height: 100vh;
+    padding: 10px;
+    overflow: hidden;
+  }
+  .prod-heading { margin-bottom: 8px; font-size: 15px; }
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+  .card { height: auto; }
+  .card-img { flex: 1 1 auto; height: auto; }
+  .card-dim { font-size: clamp(16px, 5vw, 28px); }
+}
+
+@media (max-width: 480px) {
+  .slide-content { padding: 10px 14px 12px; }
+  .slide-title { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero" id="hero">
+  <div class="slider-track" id="track">
+
+    <div class="slide">
+      <div class="slide-img s1">
+        <div class="dim-text">
+          <span class="d1">1</span><span class="d2">9</span><span class="d1">2</span><span class="d4">0</span><span class="dx">x</span><span class="d3">1</span><span class="d5">0</span><span class="d6">8</span><span class="d2">0</span>
+        </div>
+      </div>
+      <div class="slide-content">
+        <div class="slide-badge">Symbols</div>
+        <h1 class="slide-title">Welcome Developer!</h1>
+        <p class="slide-desc">Your goal is to translate the provided Figma designs into a living, functional interface. We value pixel perfection: your output should match the design specifications exactly in terms of colour, spacing, typography, and visual hierarchy.</p>
+        <div class="slide-btns">
+          <button class="btn-w">Shop Now</button>
+          <button class="btn-g">Discover All</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-img s2">
+        <div class="dim-text">
+          <span class="d2">1</span><span class="d3">9</span><span class="d4">2</span><span class="d1">0</span><span class="dx">x</span><span class="d5">1</span><span class="d6">0</span><span class="d2">8</span><span class="d3">0</span>
+        </div>
+      </div>
+      <div class="slide-content">
+        <div class="slide-badge">Symbols</div>
+        <h1 class="slide-title">Explore Our Collection</h1>
+        <p class="slide-desc">Discover the latest trends and styles crafted for every occasion. From casual to formal, we have it all.</p>
+        <div class="slide-btns">
+          <button class="btn-w">Shop Now</button>
+          <button class="btn-g">Discover All</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-img s3">
+        <div class="dim-text">
+          <span class="d4">1</span><span class="d5">9</span><span class="d6">2</span><span class="d3">0</span><span class="dx">x</span><span class="d1">1</span><span class="d2">0</span><span class="d4">8</span><span class="d5">0</span>
+        </div>
+      </div>
+      <div class="slide-content">
+        <div class="slide-badge">Symbols</div>
+        <h1 class="slide-title">New Arrivals This Season</h1>
+        <p class="slide-desc">Bold colours and innovative designs await in our latest collection. Be the first to wear the season's freshest looks.</p>
+        <div class="slide-btns">
+          <button class="btn-w">Shop Now</button>
+          <button class="btn-g">Discover All</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-img s4">
+        <div class="dim-text">
+          <span class="d6">1</span><span class="d1">9</span><span class="d2">2</span><span class="d5">0</span><span class="dx">x</span><span class="d4">1</span><span class="d3">0</span><span class="d6">8</span><span class="d1">0</span>
+        </div>
+      </div>
+      <div class="slide-content">
+        <div class="slide-badge">Symbols</div>
+        <h1 class="slide-title">Limited Time Offers</h1>
+        <p class="slide-desc">Don't miss our exclusive deals. Shop now and save big on selected items across all categories.</p>
+        <div class="slide-btns">
+          <button class="btn-w">Shop Now</button>
+          <button class="btn-g">Discover All</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-img s5">
+        <div class="dim-text">
+          <span class="d3">1</span><span class="d4">9</span><span class="d5">2</span><span class="d6">0</span><span class="dx">x</span><span class="d2">1</span><span class="d1">0</span><span class="d3">8</span><span class="d4">0</span>
+        </div>
+      </div>
+      <div class="slide-content">
+        <div class="slide-badge">Symbols</div>
+        <h1 class="slide-title">Style Meets Comfort</h1>
+        <p class="slide-desc">Experience the perfect blend of fashion and functionality, designed to keep you looking great all day.</p>
+        <div class="slide-btns">
+          <button class="btn-w">Shop Now</button>
+          <button class="btn-g">Discover All</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="arrow prev" id="prev">&#8249;</button>
+  <button class="arrow next" id="next">&#8250;</button>
+
+  <div class="dots">
+    <button class="dot on" data-i="0"></button>
+    <button class="dot" data-i="1"></button>
+    <button class="dot" data-i="2"></button>
+    <button class="dot" data-i="3"></button>
+    <button class="dot" data-i="4"></button>
+  </div>
+</section>
+
+<section class="products">
+  <h2 class="prod-heading">Heading</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <div class="card-img">
+        <div class="card-dim"><span class="d1">4</span><span class="d2">6</span><span class="d3">2</span><span class="dx">x</span><span class="d4">7</span><span class="d5">1</span><span class="d6">0</span></div>
+      </div>
+      <div class="card-body">
+        <span class="c-brand">Brand Name</span>
+        <p class="c-title">Heading</p>
+        <div class="c-price"><span class="p-now">$60.00</span><span class="p-was">$80.00</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-img">
+        <div class="card-dim"><span class="d3">4</span><span class="d4">6</span><span class="d5">2</span><span class="dx">x</span><span class="d6">7</span><span class="d1">1</span><span class="d2">0</span></div>
+      </div>
+      <div class="card-body">
+        <span class="c-brand">Brand Name</span>
+        <p class="c-title">Heading</p>
+        <div class="c-price"><span class="p-now">$60.00</span><span class="p-was">$80.00</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-img">
+        <div class="card-dim"><span class="d5">4</span><span class="d6">6</span><span class="d1">2</span><span class="dx">x</span><span class="d2">7</span><span class="d3">1</span><span class="d4">0</span></div>
+      </div>
+      <div class="card-body">
+        <span class="c-brand">Brand Name</span>
+        <p class="c-title">Heading</p>
+        <div class="c-price"><span class="p-now">$60.00</span><span class="p-was">$80.00</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-img">
+        <div class="card-dim"><span class="d2">4</span><span class="d3">6</span><span class="d4">2</span><span class="dx">x</span><span class="d5">7</span><span class="d6">1</span><span class="d1">0</span></div>
+      </div>
+      <div class="card-body">
+        <span class="c-brand">Brand Name</span>
+        <p class="c-title">Heading</p>
+        <div class="c-price"><span class="p-now">$60.00</span><span class="p-was">$80.00</span></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<script>
+var track = document.getElementById('track');
+var dots = document.querySelectorAll('.dot');
+var total = 5;
+var cur = 0;
+var timer;
+
+function go(i) {
+  cur = ((i % total) + total) % total;
+  track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+  dots.forEach(function(d, j) {
+    d.classList.toggle('on', j === cur);
+  });
+}
+
+function startAuto() {
+  timer = setInterval(function() { go(cur + 1); }, 4000);
+}
+
+function reset() {
+  clearInterval(timer);
+  startAuto();
+}
+
+document.getElementById('next').onclick = function() { go(cur + 1); reset(); };
+document.getElementById('prev').onclick = function() { go(cur - 1); reset(); };
+
+dots.forEach(function(d) {
+  d.onclick = function() { go(+d.dataset.i); reset(); };
+});
+
+var tx = 0;
+track.addEventListener('touchstart', function(e) {
+  tx = e.changedTouches[0].clientX;
+  clearInterval(timer);
+}, { passive: true });
+
+track.addEventListener('touchend', function(e) {
+  var diff = tx - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    diff > 0 ? go(cur + 1) : go(cur - 1);
+  }
+  startAuto();
+}, { passive: true });
+
+go(0);
+startAuto();
+</script>
+</body>
+</html>
