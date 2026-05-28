@@ -1,0 +1,62 @@
+# Frontend Assessment — AI Learning Labs
+
+A responsive frontend built with plain HTML, CSS, and JavaScript. No frameworks, no build tools.
+
+## What's Inside
+
+### Exercise 1 — Landing Page
+
+A hero slider at the top with product cards below.
+
+The slider auto-plays, loops infinitely, and supports swipe on touch screens. There are prev/next arrows and clickable dots to jump between slides.
+
+The product grid below shows 4 cards per row on desktop, 3 on tablet, and 2 on mobile. Each card has an image area, brand name, product title, and pricing.
+
+### Exercise 2 — Tabs and Accordion
+
+On desktop this works as a tab bar — click a tab to switch panels. Arrow keys also work to move between tabs.
+
+On mobile the same content turns into an accordion. Each section can be expanded or collapsed. The first one is open by default.
+
+## How to Run
+
+No setup needed. Just open the file:
+
+```
+open index.html
+```
+
+Or use a simple local server if you prefer:
+
+```
+npx serve .
+```
+
+Then go to `http://localhost:3000` in your browser.
+
+## File Structure
+
+```
+/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── README.md
+```
+
+## Responsive Breakpoints
+
+| Screen Size | Product Grid | Navigation |
+|---|---|---|
+| Above 1024px | 4 columns | Tabs |
+| 769px to 1024px | 3 columns | Tabs |
+| 768px and below | 2 columns | Accordion |
+| 480px and below | 2 columns, compact spacing | Accordion |
+
+## Tech Used
+
+- HTML5
+- CSS3 with grid, flexbox, and media queries
+- JavaScript ES6, no libraries
