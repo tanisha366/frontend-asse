@@ -278,9 +278,6 @@ body {
 
     <div class="slide">
       <div class="slide-img s1">
-        <div class="dim-text">
-          <span class="d1">1</span><span class="d2">9</span><span class="d1">2</span><span class="d4">0</span><span class="dx">x</span><span class="d3">1</span><span class="d5">0</span><span class="d6">8</span><span class="d2">0</span>
-        </div>
       </div>
       <div class="slide-content">
         <div class="slide-badge">Symbols</div>
@@ -295,9 +292,6 @@ body {
 
     <div class="slide">
       <div class="slide-img s2">
-        <div class="dim-text">
-          <span class="d2">1</span><span class="d3">9</span><span class="d4">2</span><span class="d1">0</span><span class="dx">x</span><span class="d5">1</span><span class="d6">0</span><span class="d2">8</span><span class="d3">0</span>
-        </div>
       </div>
       <div class="slide-content">
         <div class="slide-badge">Symbols</div>
@@ -312,9 +306,6 @@ body {
 
     <div class="slide">
       <div class="slide-img s3">
-        <div class="dim-text">
-          <span class="d4">1</span><span class="d5">9</span><span class="d6">2</span><span class="d3">0</span><span class="dx">x</span><span class="d1">1</span><span class="d2">0</span><span class="d4">8</span><span class="d5">0</span>
-        </div>
       </div>
       <div class="slide-content">
         <div class="slide-badge">Symbols</div>
@@ -329,9 +320,6 @@ body {
 
     <div class="slide">
       <div class="slide-img s4">
-        <div class="dim-text">
-          <span class="d6">1</span><span class="d1">9</span><span class="d2">2</span><span class="d5">0</span><span class="dx">x</span><span class="d4">1</span><span class="d3">0</span><span class="d6">8</span><span class="d1">0</span>
-        </div>
       </div>
       <div class="slide-content">
         <div class="slide-badge">Symbols</div>
@@ -346,9 +334,6 @@ body {
 
     <div class="slide">
       <div class="slide-img s5">
-        <div class="dim-text">
-          <span class="d3">1</span><span class="d4">9</span><span class="d5">2</span><span class="d6">0</span><span class="dx">x</span><span class="d2">1</span><span class="d1">0</span><span class="d3">8</span><span class="d4">0</span>
-        </div>
       </div>
       <div class="slide-content">
         <div class="slide-badge">Symbols</div>
@@ -381,7 +366,6 @@ body {
 
     <article class="card">
       <div class="card-img">
-        <div class="card-dim"><span class="d1">4</span><span class="d2">6</span><span class="d3">2</span><span class="dx">x</span><span class="d4">7</span><span class="d5">1</span><span class="d6">0</span></div>
       </div>
       <div class="card-body">
         <span class="c-brand">Brand Name</span>
@@ -392,7 +376,6 @@ body {
 
     <article class="card">
       <div class="card-img">
-        <div class="card-dim"><span class="d3">4</span><span class="d4">6</span><span class="d5">2</span><span class="dx">x</span><span class="d6">7</span><span class="d1">1</span><span class="d2">0</span></div>
       </div>
       <div class="card-body">
         <span class="c-brand">Brand Name</span>
@@ -403,7 +386,6 @@ body {
 
     <article class="card">
       <div class="card-img">
-        <div class="card-dim"><span class="d5">4</span><span class="d6">6</span><span class="d1">2</span><span class="dx">x</span><span class="d2">7</span><span class="d3">1</span><span class="d4">0</span></div>
       </div>
       <div class="card-body">
         <span class="c-brand">Brand Name</span>
@@ -414,7 +396,6 @@ body {
 
     <article class="card">
       <div class="card-img">
-        <div class="card-dim"><span class="d2">4</span><span class="d3">6</span><span class="d4">2</span><span class="dx">x</span><span class="d5">7</span><span class="d6">1</span><span class="d1">0</span></div>
       </div>
       <div class="card-body">
         <span class="c-brand">Brand Name</span>
@@ -458,6 +439,7 @@ dots.forEach(function(d) {
 });
 
 var tx = 0;
+
 track.addEventListener('touchstart', function(e) {
   tx = e.changedTouches[0].clientX;
   clearInterval(timer);
